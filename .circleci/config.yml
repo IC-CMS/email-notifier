@@ -89,8 +89,8 @@ jobs:
           docker build -t sredna/product-list-emitter:$TAG .
           docker tag sredna/product-list-emitter:$TAG sredna/product-list-emitter:latest
           docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push sredna/product-list-emitter:$TAG
-          docker push sredna/product-list-emitter:latest
+          docker push sredna/email-notifier:$TAG
+          docker push sredna/email-notifier:latest
 workflows:
   version: 2
   full_boat:
