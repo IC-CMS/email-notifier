@@ -86,7 +86,7 @@ jobs:
       - run: mkdir target && mv /tmp/workspace/*.jar target/emailnotifier.jar && mv /tmp/workspace/Dockerfile ./Dockerfile
       - run: |
           TAG=1.1.$CIRCLE_BUILD_NUM
-          docker build -t sredna/product-list-emitter:$TAG .
+          docker build -t sredna/email-notifier:$TAG .
           docker tag sredna/product-list-emitter:$TAG sredna/product-list-emitter:latest
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push sredna/email-notifier:$TAG
