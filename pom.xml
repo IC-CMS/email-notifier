@@ -15,6 +15,13 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>bintray-ic-cms-Maven</id>
+            <name>ic-cms-Maven</name>
+            <url>https://api.bintray.com/maven/ic-cms/Maven/email-notifier/;publish=1</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <!-- Spring Boot Dependencies -->
         <dependency>
