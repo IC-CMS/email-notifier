@@ -3,7 +3,7 @@ package cms.sre.emailnotifier.service;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -11,9 +11,10 @@ import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
 import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.model.Email;
 import cms.sre.emailnotifier.service.EmailService;
+import cms.sre.emailnotifier.TestApp;
 
 @RunWith(Springrunner.class)
-@SpringBootTest(classes = EmailServiceTest.class)
+@SpringBootTest(classes = TestApp.class)
 public class EmailServiceTest{
   //@Autowired
   //private EmailService emailService;
