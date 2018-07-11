@@ -15,6 +15,8 @@ public class EmailNotifierController {
 
     @RequestMapping("/sendEmail")
     public SendEmailRequest sendEmail(SendEmailRequest sendEmailRequest){
+        
+        emailService.sendEmail(sendEmailRequest);
         return sendEmailRequest;
     }
 
