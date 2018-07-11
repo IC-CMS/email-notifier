@@ -18,7 +18,7 @@ public class EmailService {
 
     private static boolean isValid(SendEmailRequest emailRequest){
         if(!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn().equals("") ){
-            
+            System.out.println(emailRequest.getDn());
             System.out.println("Error with DN Handling");
             return false;
         }
