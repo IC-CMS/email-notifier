@@ -20,8 +20,7 @@ import cms.sre.emailnotifier.TestApp;
 @SpringBootTest(classes = TestApp.class)
 public class EmailServiceTest{
 
-  @Autowired
-  private SendEmailRequest sendEmailRequest;
+  private SendEmailRequest sendEmailRequest = new SendEmailRequest();
   @Mock
   SMTPDao mockSMTPDao;
   @Mock
