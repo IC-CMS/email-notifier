@@ -21,7 +21,19 @@ public class EmailService {
     }
 
     private static Email convert(SendEmailRequest emailRequest){
-        return new Email();
+       String[] brokenDN = emailrequest.getDn().split(","); 
+        String commonName;
+        for(int i =0; i < brokenDN; i++){
+            if(brokenDN[i].contains("CN=")){
+                commonName = brokenDN[i];
+                i = brokenDn.length +1;
+            }
+        }
+        String[] userDetails = commonName.split(" ");
+        return new Email()
+            .setHeader(emailRequest.getSubject())
+            .setBody(emailRequest.getBody())
+            .setRecipient(userDetails[userDetails.length -1]);
     }
 
     public boolean sendEmail(SendEmailRequest emailRequest){
