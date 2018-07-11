@@ -20,7 +20,7 @@ import cms.sre.emailnotifier.TestApp;
 @SpringBootTest(classes = TestApp.class)
 public class EmailServiceTest{
 
-  private SendEmailRequest sendEmailRequest = new SendEmailRequest();
+  
   @Mock
   SMTPDao mockSMTPDao;
   @Mock
@@ -38,7 +38,7 @@ public class EmailServiceTest{
   
   @Test
   public void sendsEmailProperly(){
-    sendEmailRequest
+    SendEmailRequest sendEmailRequest = new SendEmailRequest()
       .setSubject("I am the subject of King Email")
       .setBody("There can be only ONE Body")
       .setDn("CN=Kiin Do Va dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
@@ -46,7 +46,7 @@ public class EmailServiceTest{
   }
   @Test()
   public void noEmailWithBlankDn(){
-    sendEmailRequest
+   SendEmailRequest sendEmailRequest = new SendEmailRequest()
       .setSubject("I am the subject of King Email")
       .setBody("There can be only ONE Body")
       .setDn("");
