@@ -7,6 +7,10 @@ public class EmailServiceTest{
   
   @Mock
   SMTPDao mockSMTPDao;
+  @Mock
+  Email email;
+  @Mock
+  SendEmailRequest sendEmailRequest;
   
   @InjectMocks
   EmailService emailService;
