@@ -32,7 +32,7 @@ public class EmailServiceTest{
  
   @Test
   public void sendsEmailProperly(){
-    SendEmailRequest sendEmailRequest = new SendEmailRequest()
+    SendEmailRequest sendEmailRequest = new SendEmailRequest();
       sendEmailRequest.setSubject("I am the subject of King Email");
       sendEmailRequest.setBody("There can be only ONE Body");
       sendEmailRequest.setDn("CN=Kiin Do Va dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
@@ -40,7 +40,7 @@ public class EmailServiceTest{
   }
   @Test()
   public void noEmailWithBlankDn(){
-   SendEmailRequest sendEmailRequest = new SendEmailRequest()
+   SendEmailRequest sendEmailRequest = new SendEmailRequest();
       sendEmailRequest.setSubject("I am the subject of King Email");
       sendEmailRequest.setBody("There can be only ONE Body");
       sendEmailRequest.setDn("");
