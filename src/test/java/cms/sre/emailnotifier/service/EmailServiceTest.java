@@ -2,11 +2,14 @@
 @RunWith(Springrunner.class)
 @SpringBootTest(EmailServiceTest.class)
 public class EmailServiceTest{
-  @Autowired
-  private EmailService emailService;
+  //@Autowired
+  //private EmailService emailService;
   
   @Mock
-  MimeMessageSMTPDao mMsgSMTPDao;
+  SMTPDao mockSMTPDao;
+  
+  @InjectMocks
+  EmailService emailService;
   
   @Test
   public void testAutowiring(){
