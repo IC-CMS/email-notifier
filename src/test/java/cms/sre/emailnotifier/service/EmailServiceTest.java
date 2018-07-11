@@ -29,13 +29,7 @@ public class EmailServiceTest{
   
   @InjectMocks
   EmailService emailService;
-  
-  @Test
-  public void testAutowiring(){
-    Assert.assertNotNull(sendEmailRequest);
-    
-  }
-  
+ 
   @Test
   public void sendsEmailProperly(){
     SendEmailRequest sendEmailRequest = new SendEmailRequest()
