@@ -1,8 +1,10 @@
 package cms.sre.emailnotifier.service;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.mockito.InjectMocks;
@@ -24,7 +26,7 @@ public class EmailServiceTest{
   SMTPDao mockSMTPDao;
   @Mock
   Email email;
-  @Mock
+  @Autowired
   SendEmailRequest sendEmailRequest;
   
   @InjectMocks
@@ -32,7 +34,8 @@ public class EmailServiceTest{
   
   @Test
   public void testAutowiring(){
-    Assert.assertNotNull(emailService);
+    Assert.assertNotNull(sendEmailRequest);
+    
   }
   
   @Test
