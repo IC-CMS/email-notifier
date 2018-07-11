@@ -18,12 +18,16 @@ public class EmailService {
 
     private static boolean isValid(SendEmailRequest emailRequest){
         if(!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn().equals("") ){
+            
+            System.out.println("Error with DN Handling");
             return false;
         }
         else if(emailRequest.getBody().equals(null)){
             return false;
+            System.out.println("Error with Body Handling");
         }
         else if(emailRequest.getSubject().equals(null)){
+            System.out.println("Error with Header Handling");
             return false;
         } 
         else{
