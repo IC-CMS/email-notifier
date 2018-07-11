@@ -7,7 +7,11 @@ import org.springframework.test.context.SpringBootTest;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import cms.sre.emailnotifier.
+import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
+import cms.sre.emailnotifier.dao.SMTPDao;
+import cms.sre.emailnotifier.model.Email;
+import cms.sre.emailnotifier.service.EmailService;
+
 @RunWith(Springrunner.class)
 @SpringBootTest(classes = EmailServiceTest.class)
 public class EmailServiceTest{
