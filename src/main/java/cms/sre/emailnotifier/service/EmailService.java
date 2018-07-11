@@ -33,7 +33,7 @@ public class EmailService {
 
     private static Email convert(SendEmailRequest emailRequest){
        String[] brokenDN = emailRequest.getDn().split(","); 
-        String commonName;
+        String commonName = " ";
         for(int i =0; i < brokenDN.length; i++){
             if(brokenDN[i].contains("CN=")){
                 commonName = brokenDN[i];
