@@ -1,6 +1,15 @@
+package cms.sre.emailnotifier.service;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.SpringBootTest;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+import cms.sre.emailnotifier.
 @RunWith(Springrunner.class)
-@SpringBootTest(EmailServiceTest.class)
+@SpringBootTest(classes = EmailServiceTest.class)
 public class EmailServiceTest{
   //@Autowired
   //private EmailService emailService;
