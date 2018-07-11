@@ -17,7 +17,7 @@ public class EmailService {
     }
 
     private static boolean isValid(SendEmailRequest emailRequest){
-        if(!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn.equals("") ){
+        if(!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn().equals("") ){
             return false;
         }
         else if(emailRequest.getBody().equals(null)){
