@@ -23,12 +23,10 @@ public class EmailServiceTest{
   
   @Mock
   SMTPDao mockSMTPDao;
-  @Mock
-  Email email;
   
   
   @InjectMocks
-  EmailService emailService;
+  private EmailService emailService;
  
   @Test
   public void sendsEmailProperly(){
