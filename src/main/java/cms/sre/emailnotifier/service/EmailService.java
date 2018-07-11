@@ -23,8 +23,9 @@ public class EmailService {
             return false;
         }
         else if(emailRequest.getBody().equals(null)){
-            return false;
             System.out.println("Error with Body Handling");
+            return false;
+            
         }
         else if(emailRequest.getSubject().equals(null)){
             System.out.println("Error with Header Handling");
