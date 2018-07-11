@@ -19,15 +19,14 @@ import cms.sre.emailnotifier.TestApp;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestApp.class)
 public class EmailServiceTest{
-  //@Autowired
-  //private EmailService emailService;
-  
+
+  @Autowired
+  private SendEmailRequest sendEmailRequest;
   @Mock
   SMTPDao mockSMTPDao;
   @Mock
   Email email;
-  @Autowired
-  SendEmailRequest sendEmailRequest;
+  
   
   @InjectMocks
   EmailService emailService;
