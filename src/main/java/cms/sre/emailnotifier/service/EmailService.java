@@ -23,7 +23,7 @@ public class EmailService {
         else if(emailRequest.getBody().equals(null)){
             return false;
         }
-        else if(emailRequest.getHeader().equals(null)){
+        else if(emailRequest.getSubject().equals(null)){
             return false;
         } 
         else{
@@ -32,17 +32,17 @@ public class EmailService {
     }
 
     private static Email convert(SendEmailRequest emailRequest){
-       String[] brokenDN = emailrequest.getDn().split(","); 
+       String[] brokenDN = emailRequest.getDn().split(","); 
         String commonName;
-        for(int i =0; i < brokenDN; i++){
+        for(int i =0; i < brokenDN.length; i++){
             if(brokenDN[i].contains("CN=")){
                 commonName = brokenDN[i];
-                i = brokenDn.length +1;
+                i = brokenDN.length +1;
             }
         }
         String[] userDetails = commonName.split(" ");
         return new Email()
-            .setHeader(emailRequest.getSubject())
+            .setSubject(emailRequest.getSubject())
             .setBody(emailRequest.getBody())
             .setRecipient(userDetails[userDetails.length -1]);
     }
