@@ -13,7 +13,7 @@ import cms.sre.emailnotifier.model.Email;
 import cms.sre.emailnotifier.service.EmailService;
 import cms.sre.emailnotifier.TestApp;
 
-@RunWith(Springrunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestApp.class)
 public class EmailServiceTest{
   //@Autowired
@@ -36,7 +36,7 @@ public class EmailServiceTest{
   
   @Test
   public void sendsEmailProperly(SendEmailRequest emailRequest){
-    Assert.assertTrue(emailService.sendEmail());
+    Assert.assertTrue(emailService.sendEmail(emailRequest));
   }
   
   
