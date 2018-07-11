@@ -44,7 +44,7 @@ public class EmailService {
         return new Email()
             .setSubject(emailRequest.getSubject())
             .setBody(emailRequest.getBody())
-            .setRecipient(userDetails[userDetails.length -1]);
+            .setEmailAddress(userDetails[userDetails.length -1]);
     }
 
     public boolean sendEmail(SendEmailRequest emailRequest){
