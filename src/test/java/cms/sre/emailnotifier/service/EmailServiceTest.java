@@ -26,6 +26,7 @@ public class EmailServiceTest{
 
     private SMTPDao validatedEmailDao = new SMTPDao() {
 
+        //checked After the request successfully converts to an Email
         @Override
         public boolean sendEmail(Email email) {
             Assert.assertNotNull(email);
@@ -36,7 +37,7 @@ public class EmailServiceTest{
 
             //Email Assertions
             Assert.assertNotNull(email.getEmailAddress());
-            Assert.assertTrue(email.getEmailAddress().length() > "@default.com".length());
+            Assert.assertTrue(email.getEmailAddress().length() ==  7 + "@default.com".length());
             Assert.assertTrue(email.getEmailAddress().contains("@default.com"));
 
             //Subject Assertions
@@ -54,17 +55,17 @@ public class EmailServiceTest{
         SendEmailRequest sendEmailRequest = new SendEmailRequest()
                 .setSubject("I am the subject of King Email")
                 .setBody("There can be only ONE Body")
-                .setDn("CN=Kiin Do Va dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
+                .setDn("CN=Kiin Do Vah dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
 
         logger.info(sendEmailRequest.getBody() + " " + sendEmailRequest.getSubject() + " " + sendEmailRequest.getDn());
         Assert.assertTrue(this.emailService.sendEmail(sendEmailRequest));
     }
 
     @Test
-    public void noEmailWithBlankDn(){
+    public void noEmailWithIncompleteDn(){
         SendEmailRequest sendEmailRequest = new SendEmailRequest()
-                .setSubject("I am the subject of King Email")
-                .setBody("There can be only ONE Body")
+                .setSubject("I am the subject ")
+                .setBody("Body")
                 .setDn("");
         Assert.assertFalse(this.emailService.sendEmail(sendEmailRequest));
     }
