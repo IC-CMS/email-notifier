@@ -6,17 +6,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+
 
 import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
 import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.model.Email;
-import cms.sre.emailnotifier.service.EmailService;
-import cms.sre.emailnotifier.TestApp;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
@@ -37,7 +34,7 @@ public class EmailServiceTest{
 
             //Email Assertions
             Assert.assertNotNull(email.getEmailAddress());
-            Assert.assertTrue(email.getEmailAddress().length() ==  7 + "@default.com".length());
+            Assert.assertEquals(email.getEmailAddress().length(),7 + "@default.com".length());
             Assert.assertTrue(email.getEmailAddress().contains("@default.com"));
 
             //Subject Assertions
