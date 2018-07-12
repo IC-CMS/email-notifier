@@ -4,16 +4,19 @@ import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
 import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.model.Email;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
 
+    private String emailDomain;
     private SMTPDao smtpDao;
 
     @Autowired
-    public EmailService(SMTPDao smtpDao){
+    public EmailService(SMTPDao smtpDao, String emailDomain){
         this.smtpDao = smtpDao;
+        this.emailDomain = emailDomain;
     }
 
     private static boolean isValid(SendEmailRequest emailRequest){
@@ -36,7 +39,7 @@ public class EmailService {
         }
     }
 
-    private static Email convert(SendEmailRequest emailRequest){
+    private Email convert(SendEmailRequest emailRequest){
        String[] brokenDN = emailRequest.getDn().split(","); 
         String commonName = " ";
         for(int i =0; i < brokenDN.length; i++){
@@ -46,10 +49,13 @@ public class EmailService {
             }
         }
         String[] userDetails = commonName.split(" ");
+
+        String email = userDetails[userDetails.length -1] + "@" + this.emailDomain;
+
         return new Email()
             .setSubject(emailRequest.getSubject())
             .setBody(emailRequest.getBody())
-            .setEmailAddress(userDetails[userDetails.length -1]);
+            .setEmailAddress(email);
     }
 
     public boolean sendEmail(SendEmailRequest emailRequest){
