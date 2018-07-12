@@ -1,6 +1,5 @@
 package cms.sre.emailnotifier.service;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +33,7 @@ public class EmailServiceTest{
       .setSubject("I am the subject of King Email")
       .setBody("There can be only ONE Body")
       .setDn("CN=Kiin Do Va dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
-    System.out.println();
+    System.out.println( sendEmailRequest.getBody() + " " + sendEmailRequest.getSubject() + " " + sendEmailRequest.getDn());
     Assert.assertTrue(emailService.sendEmail(sendEmailRequest));
   }
   
