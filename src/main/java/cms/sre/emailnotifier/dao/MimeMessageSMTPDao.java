@@ -25,14 +25,15 @@ public class MimeMessageSMTPDao implements SMTPDao{
         
         try{
             MimeMessage msg = new MimeMessage(sess);
-            msg.setFrom(" ");//add reelevant address
-            msg.addRecipients(Message.RecipientType.TO, email.getRecipient() + "")//domain name
+            msg.setFrom();//add relevant address
+            msg.addRecipients(Message.RecipientType.TO, email.getEmailAddress() + "");//domain name
                 msg.setText(email.getBody());
-            msg.setSubject(email.getHeader());
+            msg.setSubject(email.getSubject());
             Transport.send(msg);
             return true;
         }
         catch(Exception e){
+            return false;
         }
     }
 }
