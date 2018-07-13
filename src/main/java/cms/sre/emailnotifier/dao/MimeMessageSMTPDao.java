@@ -1,21 +1,24 @@
 package cms.sre.emailnotifier.dao;
 
-import java.util.Properties;
+import cms.sre.emailnotifier.model.Email;
+
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-import cms.sre.emailnotifier.model.Email;
-import org.springframework.stereotype.Component;
+import java.util.Properties;
 
 
-@Component
 public class MimeMessageSMTPDao implements SMTPDao{
 
-    private Properties properties = System.getProperties();
-    private Session session = Session.getDefaultInstance(properties);
+    private String hostname;
+    private int port;
+
+    public MimeMessageSMTPDao(String hostname, int port){
+        this.hostname = hostname;
+        this.port = port;
+    }
 
     @Override
     public boolean sendEmail(Email email) {
@@ -38,8 +41,9 @@ public class MimeMessageSMTPDao implements SMTPDao{
 
     public Properties getDefaultProperties(){
         //TODO hydrate default?
-        properties.put("mail.smtp.host","smtp.default.com");
-        properties.put("mail.smtp.port", "25");
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host",this.hostname);
+        properties.put("mail.smtp.port", this.port);
         return properties;
     }
     public Session getSession(){
