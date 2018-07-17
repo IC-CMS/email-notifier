@@ -8,20 +8,31 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import cms.sre.emailnotifier.model.Email;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class MimeMessageSMTPDao implements SMTPDao{
 
-    private Properties properties = System.getProperties();
-    private Session session = Session.getDefaultInstance(properties);
+
+    private String hostname;
+    private String port;
+    private Properties properties;
+
+    @Autowired
+    public MimeMessageSMTPDao(@Qualifier("emailDomain") String hostname, @Qualifier("smtpPort") String port){
+        this.hostname = hostname;
+        this.port = port;
+        properties = new Properties();
+    }
 
     @Override
     public boolean sendEmail(Email email) {
-
-        //Insert  Marking Engine Here
-        //insert properties relevant to us
+        this.properties.put("mail.smtp.host", hostname);
+        this.properties.put("mail.smtp.port", port);
+        Session session = Session.getDefaultInstance(this.properties);
         try{
             MimeMessage msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress("CookieMonster@default.com"));
@@ -36,14 +47,22 @@ public class MimeMessageSMTPDao implements SMTPDao{
         }
     }
 
-    public Properties getDefaultProperties(){
-        //TODO hydrate default?
-        properties.put("mail.smtp.host","smtp.default.com");
-        properties.put("mail.smtp.port", "25");
-        return properties;
-    }
-    public Session getSession(){
-        return session;
+    public String getHostname(){
+        return hostname;
     }
 
+    public String getPort() {
+        return port;
+    }
+    public MimeMessageSMTPDao setHostname(String hostname){
+        this.hostname=hostname;
+        return this;
+    }
+    public MimeMessageSMTPDao setPort(String port){
+        this.port = port;
+        return this;
+    }
+    public Properties getProperties(){
+        return this.properties;
+    }
 }

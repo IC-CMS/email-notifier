@@ -22,6 +22,8 @@ public class EmailServiceTest{
 
     private SMTPDao validatedEmailDao = new SMTPDao() {
 
+        private final int nameLength = 7;
+
         //checked After the request successfully converts to an Email
         @Override
         public boolean sendEmail(Email email) {
@@ -33,7 +35,7 @@ public class EmailServiceTest{
 
             //Email Assertions
             Assert.assertNotNull(email.getEmailAddress());
-            Assert.assertEquals(email.getEmailAddress().length(),7 + "@default.com".length());
+            Assert.assertEquals(email.getEmailAddress().length(),nameLength + "@default.com".length());
             Assert.assertTrue(email.getEmailAddress().contains("@default.com"));
 
             //Subject Assertions
@@ -63,6 +65,7 @@ public class EmailServiceTest{
                 .setSubject("I am the subject ")
                 .setBody("Body")
                 .setDn("");
+        //Dao never gets called
         Assert.assertFalse(this.emailService.sendEmail(sendEmailRequest));
     }
 
