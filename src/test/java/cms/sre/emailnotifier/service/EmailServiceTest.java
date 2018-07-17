@@ -69,5 +69,4 @@ public class EmailServiceTest{
         Assert.assertFalse(this.emailService.sendEmail(sendEmailRequest));
     }
 
-
 }

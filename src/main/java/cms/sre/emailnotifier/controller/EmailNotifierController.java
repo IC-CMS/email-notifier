@@ -17,9 +17,5 @@ public class EmailNotifierController {
         emailService.sendEmail(sendEmailRequest);
         return sendEmailRequest;
     }
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public SendEmailRequest getEmail(){
-        return new SendEmailRequest().setBody("body").setSubject("subject").setDn("Dn");
-    }
 
 }

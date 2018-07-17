@@ -20,7 +20,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestMimeMessageSMTPDao {
@@ -52,9 +51,28 @@ public class TestMimeMessageSMTPDao {
     }
     //This Method bypasses the Service function and acts as if the email was verified as Valid.
     @Ignore
-    @Test //TODO: Finish This Test!!
+    @Test
     public void sendsActualEmail(){
-        //setDefaultProperties("", "");
+        boolean sent;
+        setDefaultProperties("localhost", "25");
+        Email email = new Email()
+                .setEmailAddress("dummyEmail@default.com")
+                .setBody("This is a Test Email")
+                .setSubject("This is a Test Email");
+        Session session = Session.getDefaultInstance(this.defaultProperties);
+        try{
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress("CookieMonster@default.com"));
+            msg.addRecipients(Message.RecipientType.TO, email.getEmailAddress());
+            msg.setText(email.getBody());
+            msg.setSubject(email.getSubject());
+            Transport.send(msg);
+            sent = true;
+        }
+        catch(Exception e){
+            sent = false;
+        }
+        Assert.assertTrue(sent);
 
     }
     public void setDefaultProperties(String hostname, String port){
