@@ -22,7 +22,7 @@ public class MimeMessageSMTPDao implements SMTPDao{
     private Properties properties;
 
     @Autowired
-    public MimeMessageSMTPDao(@Qualifier("emailDomain") String hostname, @Qualifier("smtpPort") String port){
+    public MimeMessageSMTPDao(@Qualifier("emailDomain") String hostname, @Qualifier("emailPort") String port){
         this.hostname = hostname;
         this.port = port;
         properties = new Properties();

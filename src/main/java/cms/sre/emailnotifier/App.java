@@ -30,6 +30,9 @@ public class App {
         return this.emailDomain;
     }
 
+    @Bean(name = "emailPort")
+    public String smtpPort(){return this.emailPort; }
+
     @Bean
     public SMTPDao smtpDao(){
         return new MimeMessageSMTPDao(this.emailHost, this.emailPort);
