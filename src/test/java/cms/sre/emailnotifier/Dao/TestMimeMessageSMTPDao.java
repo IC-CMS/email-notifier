@@ -54,6 +54,7 @@ public class TestMimeMessageSMTPDao {
     @Ignore
     @Test //TODO: Finish This Test!!
     public void sendsActualEmail(){
+        //setDefaultProperties("", "");
 
     }
     public void setDefaultProperties(String hostname, String port){
