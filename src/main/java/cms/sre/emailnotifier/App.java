@@ -19,7 +19,7 @@ public class App {
     private String emailHost;
 
     @Value("${emailnotifier.smtpPort:25")
-    private int emailPort;
+    private String emailPort;
 
     public static void main(String[] args){
         SpringApplication.run(App.class, args);
