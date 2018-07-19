@@ -1,9 +1,9 @@
 package cms.sre.emailnotifier.controller;
 
 import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
+import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +14,18 @@ public class EmailNotifierController {
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
     public SendEmailRequest sendEmail(@RequestBody SendEmailRequest sendEmailRequest){
-        emailService.sendEmail(sendEmailRequest);
-        return sendEmailRequest;
+        boolean sent = emailService.sendEmail(sendEmailRequest);
+        if(sent){
+            //do something
+            return sendEmailRequest;
+        }
+        else{
+            //do something better than this
+            return sendEmailRequest.setSubject("Bad Email Request");
+
+        }
+
+
     }
 
 }

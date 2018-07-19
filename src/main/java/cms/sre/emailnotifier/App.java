@@ -12,29 +12,33 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 public class App {
 
-    @Value("${emailnotifier.emailDomain:default}")
-    private String emailDomain;
+    //@Value("${emailnotifier.emailDomain:default}")
+    //private String emailDomain;
 
-    @Value("${emailnotifier.smtpHost:default")
+    @Value("${emailnotifier.smtpHost:localhost}")
     private String emailHost;
 
-    @Value("${emailnotifier.smtpPort:25")
-    private String emailPort;
+    @Value("${emailnotifier.smtpPort:25}")
+    private int emailPort;
+
+    @Value("${emailnotifier.addressHost:default.com}")
+    private String addressHost;
 
     public static void main(String[] args){
         SpringApplication.run(App.class, args);
     }
 
-    @Bean(name="emailDomain")
-    public String externalEmailDomain(){
-        return this.emailDomain;
+    @Bean(name = "emailHost")
+    public String getEmailHost(){
+        return emailHost;
     }
-
-    @Bean(name = "emailPort")
-    public String smtpPort(){return this.emailPort; }
 
     @Bean
-    public SMTPDao smtpDao(){
-        return new MimeMessageSMTPDao(this.emailHost, this.emailPort);
+    public SMTPDao smtpDao(String emailHost){
+        return new MimeMessageSMTPDao(emailHost, this.emailPort);
     }
+
+    @Bean(name = "addressHost")
+    public String getAddressHost(){ return this.addressHost; }
+
 }

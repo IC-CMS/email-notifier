@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="daf96ed5-d2cc-4ea3-b150-19574a8e2c07" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/Dao/TestMimeMessageSMTPDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/dao/TestMimeMessageSMTPDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -15,13 +22,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/emailnotifier$TestEmailController.ic" NAME="TestEmailController Coverage Results" MODIFIED="1531853719739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/emailnotifier$TestEmailController.ic" NAME="TestEmailController Coverage Results" MODIFIED="1531916812272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cms.sre.emailnotifier.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/emailnotifier$TestApp.ic" NAME="TestApp Coverage Results" MODIFIED="1531916847355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>cms.sre.emailnotifier.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/emailnotifier$TestMimeMessageSMTPDao.ic" NAME="TestMimeMessageSMTPDao Coverage Results" MODIFIED="1531856375800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cms.sre.emailnotifier.Dao.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/emailnotifier$EmailServiceTest.ic" NAME="EmailServiceTest Coverage Results" MODIFIED="1531853769450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/emailnotifier$EmailServiceTest.ic" NAME="EmailServiceTest Coverage Results" MODIFIED="1531916830659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>cms.sre.emailnotifier.service.*</FILTER>
     </SUITE>
   </component>
@@ -30,8 +40,8 @@
       <file leaf-file-name="EmailNotifierController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="289">
+              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,47 +52,7 @@
       <file leaf-file-name="MimeMessageSMTPDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Email.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/model/Email.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#182#183#0" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SMTPDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/SMTPDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmailService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMimeMessageSMTPDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/Dao/TestMimeMessageSMTPDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="901">
               <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -91,11 +61,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java">
+      <file leaf-file-name="TestEmailController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            <state relative-caret-position="490">
+              <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestMimeMessageSMTPDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/dao/TestMimeMessageSMTPDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,8 +85,29 @@
       <file leaf-file-name="EmailServiceTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+            <state relative-caret-position="278">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,6 +124,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>System.out.println</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -165,15 +173,17 @@
         <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/TestApp.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java" />
         <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/model/TestEmail.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/Dao/TestMimeMessageSMTPDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/util/InvalidEmailException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/dao/TestMimeMessageSMTPDao.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/Dao/TestMimeMessageSMTPDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java" />
       </list>
     </option>
   </component>
@@ -205,9 +215,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+    <option name="x" value="847" />
     <option name="y" value="14" />
-    <option name="width" value="974" />
+    <option name="width" value="1080" />
     <option name="height" value="1033" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -349,6 +359,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -461,7 +473,7 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="emailnotifier" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="emailnotifier" type="b2602c69:ProjectViewProjectNode" />
@@ -476,8 +488,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -507,7 +517,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestMimeMessageSMTPDao">
+  <component name="RunManager" selected="JUnit.EmailServiceTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -525,6 +535,29 @@
       <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.service.EmailServiceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="EmailServiceTest.sendsEmailProperly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="email-notifier" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cms.sre.emailnotifier.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cms.sre.emailnotifier.service" />
+      <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.service.EmailServiceTest" />
+      <option name="METHOD_NAME" value="sendsEmailProperly" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -557,7 +590,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TestEmailController.objectToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEmailController.emailServiceCallsIncorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="email-notifier" />
       <extension name="coverage">
         <pattern>
@@ -569,7 +602,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="cms.sre.emailnotifier.controller" />
       <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.controller.TestEmailController" />
-      <option name="METHOD_NAME" value="objectToJson" />
+      <option name="METHOD_NAME" value="emailServiceCallsIncorrectly" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -580,42 +613,19 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="TestMimeMessageSMTPDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEmailController.restTemplateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="email-notifier" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cms.sre.emailnotifier.Dao.*" />
+          <option name="PATTERN" value="cms.sre.emailnotifier.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cms.sre.emailnotifier.Dao" />
-      <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.Dao.TestMimeMessageSMTPDao" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="TestMimeMessageSMTPDao.sendsActualEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="email-notifier" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cms.sre.emailnotifier.Dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="cms.sre.emailnotifier.Dao" />
-      <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.Dao.TestMimeMessageSMTPDao" />
-      <option name="METHOD_NAME" value="sendsActualEmail" />
+      <option name="PACKAGE_NAME" value="cms.sre.emailnotifier.controller" />
+      <option name="MAIN_CLASS_NAME" value="cms.sre.emailnotifier.controller.TestEmailController" />
+      <option name="METHOD_NAME" value="restTemplateTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -671,18 +681,18 @@
     <list>
       <item itemvalue="Spring Boot.App" />
       <item itemvalue="JUnit.TestEmailController" />
-      <item itemvalue="JUnit.TestEmailController.objectToJson" />
-      <item itemvalue="JUnit.TestMimeMessageSMTPDao" />
+      <item itemvalue="JUnit.TestEmailController.restTemplateTest" />
+      <item itemvalue="JUnit.TestEmailController.emailServiceCallsIncorrectly" />
+      <item itemvalue="JUnit.EmailServiceTest.sendsEmailProperly" />
       <item itemvalue="JUnit.EmailServiceTest" />
-      <item itemvalue="JUnit.TestMimeMessageSMTPDao.sendsActualEmail" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestMimeMessageSMTPDao" />
-        <item itemvalue="JUnit.TestMimeMessageSMTPDao.sendsActualEmail" />
         <item itemvalue="JUnit.EmailServiceTest" />
+        <item itemvalue="JUnit.EmailServiceTest.sendsEmailProperly" />
+        <item itemvalue="JUnit.TestEmailController.restTemplateTest" />
+        <item itemvalue="JUnit.TestEmailController.emailServiceCallsIncorrectly" />
         <item itemvalue="JUnit.TestEmailController" />
-        <item itemvalue="JUnit.TestEmailController.objectToJson" />
       </list>
     </recent_temporary>
   </component>
@@ -699,7 +709,9 @@
       <workItem from="1531400140501" duration="4233000" />
       <workItem from="1531483526673" duration="8193000" />
       <workItem from="1531741061944" duration="27749000" />
-      <workItem from="1531840187666" duration="14247000" />
+      <workItem from="1531840187666" duration="14607000" />
+      <workItem from="1531913574188" duration="25059000" />
+      <workItem from="1532000390952" duration="16450000" />
     </task>
     <task id="LOCAL-00001" summary="Added Stubs for &#10;-- Controller&#10;-- Service&#10;-- Dao&#10;-- Application">
       <created>1531236707771</created>
@@ -764,51 +776,58 @@
       <option name="project" value="LOCAL" />
       <updated>1531857198589</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Current State">
+      <created>1531857796606</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1531857796606</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestEmailController - 2018.07.17 at 14h 51m 50s.xml">
-      <configuration name="TestEmailController" configurationId="JUnit" />
+    <history-entry file="TestEmailController_emailServiceCallsIncorrectly - 2018.07.19 at 11h 51m 23s.xml">
+      <configuration name="TestEmailController.emailServiceCallsIncorrectly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestEmailController - 2018.07.17 at 14h 53m 34s.xml">
-      <configuration name="TestEmailController" configurationId="JUnit" />
+    <history-entry file="TestEmailController_emailServiceCallsIncorrectly - 2018.07.19 at 11h 57m 58s.xml">
+      <configuration name="TestEmailController.emailServiceCallsIncorrectly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao - 2018.07.17 at 14h 53m 53s.xml">
-      <configuration name="TestMimeMessageSMTPDao" configurationId="JUnit" />
+    <history-entry file="TestEmailController_emailServiceCallsIncorrectly - 2018.07.19 at 11h 58m 35s.xml">
+      <configuration name="TestEmailController.emailServiceCallsIncorrectly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao - 2018.07.17 at 14h 54m 58s.xml">
-      <configuration name="TestMimeMessageSMTPDao" configurationId="JUnit" />
+    <history-entry file="TestEmailController_restTemplateTest - 2018.07.19 at 12h 13m 21s.xml">
+      <configuration name="TestEmailController.restTemplateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestEmailController - 2018.07.17 at 14h 55m 40s.xml">
-      <configuration name="TestEmailController" configurationId="JUnit" />
+    <history-entry file="TestEmailController_restTemplateTest - 2018.07.19 at 12h 19m 04s.xml">
+      <configuration name="TestEmailController.restTemplateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao - 2018.07.17 at 14h 56m 01s.xml">
-      <configuration name="TestMimeMessageSMTPDao" configurationId="JUnit" />
+    <history-entry file="TestEmailController_restTemplateTest - 2018.07.19 at 12h 34m 29s.xml">
+      <configuration name="TestEmailController.restTemplateTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="EmailServiceTest - 2018.07.17 at 14h 56m 18s.xml">
-      <configuration name="EmailServiceTest" configurationId="JUnit" />
+    <history-entry file="EmailServiceTest_sendsEmailProperly - 2018.07.19 at 12h 42m 01s.xml">
+      <configuration name="EmailServiceTest.sendsEmailProperly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao_sendsActualEmail - 2018.07.17 at 15h 37m 58s.xml">
-      <configuration name="TestMimeMessageSMTPDao.sendsActualEmail" configurationId="JUnit" />
+    <history-entry file="EmailServiceTest_sendsEmailProperly - 2018.07.19 at 12h 43m 10s.xml">
+      <configuration name="EmailServiceTest.sendsEmailProperly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao_sendsActualEmail - 2018.07.17 at 15h 38m 26s.xml">
-      <configuration name="TestMimeMessageSMTPDao.sendsActualEmail" configurationId="JUnit" />
+    <history-entry file="EmailServiceTest_sendsEmailProperly - 2018.07.19 at 12h 45m 12s.xml">
+      <configuration name="EmailServiceTest.sendsEmailProperly" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestMimeMessageSMTPDao - 2018.07.17 at 15h 39m 45s.xml">
-      <configuration name="TestMimeMessageSMTPDao" configurationId="JUnit" />
+    <history-entry file="EmailServiceTest_sendsEmailProperly - 2018.07.19 at 12h 47m 05s.xml">
+      <configuration name="EmailServiceTest.sendsEmailProperly" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79610000" />
+    <option name="totallyTimeSpent" value="121479000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="6" width="1936" height="1042" extended-state="6" />
+    <frame x="847" y="14" width="1080" height="1033" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" weight="0.3290398" />
-      <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.49796748" visible="true" weight="0.036780383" />
+      <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.4979424" visible="true" weight="0.31960785" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="0" />
@@ -816,32 +835,69 @@
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4368715" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.19579646" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946696" weight="0.32900432" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946696" weight="0.3273743" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.069716774" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.45575222" />
-      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5020325" side_tool="true" visible="true" weight="0.036780383" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.36089385" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.25692964" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.19803922" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5020576" side_tool="true" weight="0.0804904" />
       <window_info id="Learn" order="2" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32849163" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.36089385" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info id="Image Layers" order="5" />
+      <window_info anchor="right" id="Commander" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" weight="0.3290398" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946696" weight="0.32743362" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.069716774" />
+      <window_info anchor="right" id="Maven Projects" order="3" sideWeight="0.4979424" visible="true" weight="0.3196864" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32849163" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.19860627" />
+      <window_info id="Learn" order="2" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5020576" side_tool="true" weight="0.0804904" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.19579646" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -859,7 +915,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <option name="time" value="44" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -867,27 +923,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/model/Email.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/SMTPDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1075,13 +1110,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestController.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/TestApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.0.0.RELEASE/spring-boot-test-2.0.0.RELEASE.jar!/org/springframework/boot/test/web/client/TestRestTemplate.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13">
@@ -1104,13 +1132,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/2/ClientWithResponseHandler.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1153,33 +1174,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/model/TestEmail.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/model/TestEmail.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state relative-caret-position="110">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="239">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/util/InvalidEmailException.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/net/SocketInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/SMTPDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="221">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/Dao/TestMimeMessageSMTPDao.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/TestApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="136">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
           <caret line="53" column="9" lean-forward="true" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1187,27 +1228,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/SMTPDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/model/Email.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#182#183#0" expanded="true" />
             <element signature="e#217#218#0" expanded="true" />
@@ -1215,31 +1239,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/controller/EmailNotifierController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        <state relative-caret-position="289">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/dao/MimeMessageSMTPDao.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/controller/TestEmailController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        <state relative-caret-position="490">
+          <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/dao/TestMimeMessageSMTPDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="544">
+          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cms/sre/emailnotifier/service/EmailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/cms/sre/emailnotifier/service/EmailServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        <state relative-caret-position="278">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

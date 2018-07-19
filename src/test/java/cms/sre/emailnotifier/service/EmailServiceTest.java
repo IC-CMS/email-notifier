@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -18,15 +20,22 @@ import cms.sre.emailnotifier.model.Email;
 @SpringBootTest(classes = App.class)
 public class EmailServiceTest{
 
+    @Autowired
+    @Qualifier("addressHost")
+    private String addressHost;
+
     private static Logger logger = LoggerFactory.getLogger(EmailServiceTest.class);
 
     private SMTPDao validatedEmailDao = new SMTPDao() {
 
-        private final int nameLength = 7;
-
         //checked After the request successfully converts to an Email
         @Override
         public boolean sendEmail(Email email) {
+            final int nameLength = 7;
+            String emailDomain = "@" + addressHost;
+            System.out.println(emailDomain);
+            System.out.println(email.getEmailAddress());
+
             Assert.assertNotNull(email);
 
             //Body Assertions
@@ -35,8 +44,8 @@ public class EmailServiceTest{
 
             //Email Assertions
             Assert.assertNotNull(email.getEmailAddress());
-            Assert.assertEquals(email.getEmailAddress().length(),nameLength + "@default.com".length());
-            Assert.assertTrue(email.getEmailAddress().contains("@default.com"));
+            Assert.assertEquals(nameLength + emailDomain.length() , email.getEmailAddress().length());
+            Assert.assertTrue(email.getEmailAddress().contains(emailDomain));
 
             //Subject Assertions
             Assert.assertNotNull(email.getSubject());
@@ -55,17 +64,15 @@ public class EmailServiceTest{
                 .setBody("There can be only ONE Body")
                 .setDn("CN=Kiin Do Vah dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
 
-        logger.info(sendEmailRequest.getBody() + " " + sendEmailRequest.getSubject() + " " + sendEmailRequest.getDn());
         Assert.assertTrue(this.emailService.sendEmail(sendEmailRequest));
     }
 
     @Test
     public void noEmailWithIncompleteDn(){
         SendEmailRequest sendEmailRequest = new SendEmailRequest()
-                .setSubject("I am the subject ")
+                .setSubject("I am the subject")
                 .setBody("Body")
                 .setDn("");
-        //Dao never gets called
         Assert.assertFalse(this.emailService.sendEmail(sendEmailRequest));
     }
 

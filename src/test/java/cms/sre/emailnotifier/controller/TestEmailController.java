@@ -1,6 +1,10 @@
 package cms.sre.emailnotifier.controller;
 
 import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
+import cms.sre.emailnotifier.App;
+import cms.sre.emailnotifier.dao.MimeMessageSMTPDao;
+import cms.sre.emailnotifier.dao.SMTPDao;
+import cms.sre.emailnotifier.model.Email;
 import cms.sre.emailnotifier.service.EmailService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
@@ -15,23 +19,31 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestEmailController.TestAppConfig.class)
 public class TestEmailController {
 
-    private JacksonTester<SendEmailRequest> jsonEmailRequest;
-    private Logger logger = LoggerFactory.getLogger(TestEmailController.class);
+    private static JacksonTester<SendEmailRequest> jsonEmailRequest;
+
+    private static Logger logger = LoggerFactory.getLogger(TestEmailController.class);
+
+    @Autowired
+    private EmailNotifierController controller;
 
     @LocalServerPort
     private int port;
@@ -43,61 +55,80 @@ public class TestEmailController {
     public void setup(){
         JacksonTester.initFields(this, new ObjectMapper());
     }
-
     @Test
     public void testAutowiring(){
         Assert.assertNotNull(testRestTemplate);
     }
 
-    //Tests to see if Json requests can be parsed into Proper Object
-    @Test
-    public void jsonChecker() throws Exception{
-        //Assume the Controller returns JSON:
-        String jsonRequest = "{\"dn\":\"CN=Kiin Do Vah dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel\"," +
-                "\"body\":\"There can be only ONE Body\"," +
-                "\"subject\":\"I am the subject of King Email\"}";
-
-        Assert.assertNotNull(this.jsonEmailRequest.parseObject(jsonRequest));
-
-        Assert.assertNotEquals(this.jsonEmailRequest.parseObject(jsonRequest).getDn(), "");
-        Assert.assertNotNull(this.jsonEmailRequest.parseObject(jsonRequest).getDn());
-        Assert.assertEquals(this.jsonEmailRequest.parseObject(jsonRequest).getDn(), "CN=Kiin Do Vah dvkiin1, OU=Whiterun, OU=Breezehome, OU=Empire, O=JarlBalgruuf, C=Tamriel");
-
-        Assert.assertNotEquals(this.jsonEmailRequest.parseObject(jsonRequest).getBody(), "");
-        Assert.assertNotNull(this.jsonEmailRequest.parseObject(jsonRequest).getBody());
-        Assert.assertEquals(this.jsonEmailRequest.parseObject(jsonRequest).getBody(), "There can be only ONE Body");
-
-        Assert.assertNotEquals(this.jsonEmailRequest.parseObject(jsonRequest).getSubject(), "");
-        Assert.assertNotNull(this.jsonEmailRequest.parseObject(jsonRequest).getSubject());
-        Assert.assertEquals(this.jsonEmailRequest.parseObject(jsonRequest).getSubject(), "I am the subject of King Email");
-
-    }
-
-
     @Test
     public void objectToJson() throws Exception{
+        //ALWAYS Calls Email Service
         //Assume we have a JSON request to the Controller:
-        String jsonRequest = "{\"dn\":\"CN=\",\"subject\":\"sub\",\"body\":\"Body\"}";
+        String jsonRequest = "{\"dn\":\"CN=Doe John Smith jsdoe12\",\"subject\":\"sub\",\"body\":\"Body\"}";
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost("http://localhost:" + port + "/sendEmail");
+        HttpPost httpPost = new HttpPost("http://localhost:" + this.port + "/sendEmail");
         StringEntity json = new StringEntity(jsonRequest);
         httpPost.setEntity(json);
         httpPost.setHeader("Accept","application/json");
         httpPost.setHeader("Content-Type","application/json");
-
         CloseableHttpResponse response = httpClient.execute(httpPost);
 
         HttpEntity entity = response.getEntity();
         String responseString = EntityUtils.toString(entity);
 
-        logger.info(responseString);
-
         Assert.assertEquals(200, response.getStatusLine().getStatusCode());
-        Assert.assertEquals(responseString, jsonRequest);
+        Assert.assertEquals(jsonRequest, responseString);
         Assert.assertNotNull(response);
 
     }
+    @Test
+    public void restTemplateTest(){
+
+        SendEmailRequest request = new SendEmailRequest()
+                .setSubject("sub")
+                .setBody("bod")
+                .setDn("CN=Doe John Smith jsdoe12");
+        SendEmailRequest response = testRestTemplate.postForObject("http://localhost:" + this.port + "/sendEmail", request, SendEmailRequest.class);
+        //rest template ALWAYS calls email service
+
+        Assert.assertNotNull(response);
+
+        Assert.assertEquals(request.getBody(), response.getBody());
+        Assert.assertEquals(request.getSubject(), response.getSubject());
+        Assert.assertEquals(request.getDn(), response.getDn());
+    }
+    @Test
+    public void emailServiceCallsIncorrectly(){
+        try{
+            String jsonRequest = "{\"dn\":\"Doe John Smith jsdoe12\",\"subject\":\"sub\",\"body\":\"Body\"}";
+            SendEmailRequest parsedEmailRequest = jsonEmailRequest.parseObject(jsonRequest);
+            Assert.assertNotNull(parsedEmailRequest);
+
+            SendEmailRequest response = controller.sendEmail(parsedEmailRequest);
+            Assert.assertTrue(response.getSubject().equals("Bad Email Request"));
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @SpringBootApplication
+    public static class TestAppConfig extends App{
+
+        @Override
+        @Bean
+        public SMTPDao smtpDao(String addressHost){
+            return email -> {
+                logger.info("Fake SMTPDAO called");
+                return true;
+            };
+        }
+
+    }
+
 
 
 
