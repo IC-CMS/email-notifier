@@ -49,7 +49,6 @@ public class EmailService {
     }
 
     private Email convert(SendEmailRequest emailRequest){
-        System.out.println(addressHost);
         int idLength = 7;
         String email;
         String[] brokenDN = emailRequest.getDn().split(",");

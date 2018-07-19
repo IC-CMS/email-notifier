@@ -33,9 +33,6 @@ public class MimeMessageSMTPDao implements SMTPDao{
 
     @Override
     public boolean sendEmail(Email email) {
-        System.out.println(emailAddress);
-        System.out.println(hostname);
-        System.out.println(port);
         Properties properties = new Properties();
         properties.put("mail.smtp.host", hostname);
         properties.put("mail.smtp.port", String.valueOf(port));
