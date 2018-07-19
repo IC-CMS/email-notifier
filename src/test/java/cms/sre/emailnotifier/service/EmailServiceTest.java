@@ -33,8 +33,6 @@ public class EmailServiceTest{
         public boolean sendEmail(Email email) {
             final int nameLength = 7;
             String emailDomain = "@" + addressHost;
-            System.out.println(emailDomain);
-            System.out.println(email.getEmailAddress());
 
             Assert.assertNotNull(email);
 
