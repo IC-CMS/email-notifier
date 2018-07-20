@@ -17,13 +17,7 @@ import java.util.Properties;
 @SpringBootTest
 public class TestMimeMessageSMTPDao {
 
-    private MimeMessageSMTPDao mimeMessageSMTPDao = new MimeMessageSMTPDao("smtp.default.com", 25);
-
-    private Properties defaultProperties = new Properties();
-
     private static Logger logger = LoggerFactory.getLogger(TestMimeMessageSMTPDao.class);
-
-    EmailService emailService;
 
     //This Method bypasses the Service function and acts as if the email was verified as Valid.
     @Ignore
@@ -35,11 +29,6 @@ public class TestMimeMessageSMTPDao {
                 .setEmailAddress("Dovahkiin@Dragonborn.com");
         MimeMessageSMTPDao mimeMessageSMTPDao = new MimeMessageSMTPDao("smtp.default.com", 25);
         Assert.assertTrue(mimeMessageSMTPDao.sendEmail(email));
-
-    }
-    public void setDefaultProperties(String hostname, String port){
-        defaultProperties.put("mail.smtp.host", hostname);
-        defaultProperties.put("mail.smtp.port", port);
 
     }
 
