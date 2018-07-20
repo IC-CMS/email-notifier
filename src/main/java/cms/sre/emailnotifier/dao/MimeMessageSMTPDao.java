@@ -14,20 +14,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-
-@PropertySource(value = "classpath:application.properties", ignoreResourceNotFound = true)
 public class MimeMessageSMTPDao implements SMTPDao{
 
-    //update relevant to us, the default value currently set is not a representaiton of an actual email
-    @Value("${emailnotifier.defaultSender:FAKE_EMAIL@default.com}")
-    private String emailAddress;
 
+    private String emailAddress;
     private String hostname;
     private int port;
 
-    public MimeMessageSMTPDao(String hostname, int port){
+    public MimeMessageSMTPDao(String hostname, int port, @Qualifier("defaultSender") String emailAddress){
         this.hostname = hostname;
         this.port = port;
+        this.emailAddress = emailAddress;
 
     }
 
@@ -49,10 +46,6 @@ public class MimeMessageSMTPDao implements SMTPDao{
         catch(Exception e){
             return false;
         }
-    }
-
-    public String getHostname(){
-        return hostname;
     }
 
     public int getPort() {

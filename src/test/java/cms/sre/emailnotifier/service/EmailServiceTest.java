@@ -24,6 +24,9 @@ public class EmailServiceTest{
     @Qualifier("addressHost")
     private String addressHost;
 
+    @Autowired
+    EmailService service;
+
     private static Logger logger = LoggerFactory.getLogger(EmailServiceTest.class);
 
     private SMTPDao validatedEmailDao = new SMTPDao() {
@@ -54,6 +57,11 @@ public class EmailServiceTest{
     };
 
     private EmailService emailService = new EmailService(this.validatedEmailDao, "default.com");
+
+    @Test
+    public void testAutowiring(){
+        Assert.assertNotNull(service);
+    }
 
     @Test
     public void sendsEmailProperly(){
