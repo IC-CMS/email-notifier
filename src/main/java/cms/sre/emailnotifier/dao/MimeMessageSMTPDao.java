@@ -21,7 +21,7 @@ public class MimeMessageSMTPDao implements SMTPDao{
     private String hostname;
     private int port;
 
-    public MimeMessageSMTPDao(String hostname, int port, @Qualifier("defaultSender") String emailAddress){
+    public MimeMessageSMTPDao(String hostname, int port, String emailAddress){
         this.hostname = hostname;
         this.port = port;
         this.emailAddress = emailAddress;
