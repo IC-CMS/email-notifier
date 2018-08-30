@@ -3,29 +3,32 @@ package cms.sre.emailnotifier.service;
 import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
 import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.model.Email;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class EmailService {
 
+    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 
     private String addressHost;
     private SMTPDao smtpDao;
 
     @Autowired
     public EmailService(SMTPDao smtpDao, @Qualifier("addressHost") String addressHost){
+
         this.smtpDao = smtpDao;
         this.addressHost = addressHost;
 
     }
 
     private static boolean isValid(SendEmailRequest emailRequest){
+
+        logger.debug("Validating email: " + emailRequest.getSubject());
 
         boolean ret;
         if(!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn().equals("") ){
@@ -49,6 +52,9 @@ public class EmailService {
     }
 
     private Email convert(SendEmailRequest emailRequest){
+
+        logger.debug("Calling convert email.");
+
         int idLength = 7;
         String email;
         String[] brokenDN = emailRequest.getDn().split(",");
@@ -79,6 +85,9 @@ public class EmailService {
     }
 
     public boolean sendEmail(SendEmailRequest emailRequest){
+
+        logger.debug("Calling sendEmail");
+
         boolean ret;
 
         if(isValid(emailRequest)){
@@ -89,5 +98,4 @@ public class EmailService {
         }
         return ret;
     }
-
 }

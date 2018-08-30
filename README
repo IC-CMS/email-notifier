@@ -1,1 +1,22 @@
-This microservice notifies users via email.
+email-notifier microservice notifies users via email.
+
+## Configuration:
+Expected configuration file located at /config/application.properties.  This file must have some
+or all of the following properties specified
+
+# Place application.properties in mountable location and start the instance similar to below.
+
+docker run --network=host --rm --name email-notifier -it -p 9091:8080 -v /data/email-notifier/configuration/:/config/ email-notifier:latest
+
+# Service config
+server.port=8080
+
+#Logging configuration
+logging.level.root=INFO
+logging.level.cms.sre=INFO
+
+emailnotifier.smtpHost=localhost
+emailnotifier.smtpPort=25
+emailnotifier.addressHost=default.com
+emailnotifier.defaultSender=no-reply@default.com
+
