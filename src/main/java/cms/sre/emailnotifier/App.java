@@ -1,13 +1,13 @@
 package cms.sre.emailnotifier;
 
-import cms.sre.emailnotifier.dao.MimeMessageSMTPDao;
-import cms.sre.emailnotifier.dao.SMTPDao;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class App {
 
 
@@ -30,11 +30,6 @@ public class App {
     @Bean(name = "emailHost")
     public String getEmailHost(){
         return emailHost;
-    }
-
-    @Bean
-    public SMTPDao smtpDao(String emailHost){
-        return new MimeMessageSMTPDao(emailHost, this.emailPort, this.defaultSender);
     }
 
     @Bean(name = "addressHost")
