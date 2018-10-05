@@ -62,7 +62,7 @@
         <dependency>
             <groupId>cms.sre</groupId>
             <artifactId>dna-common-data-model</artifactId>
-            <version>1.3.87</version>
+            <version>1.3.91</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mongodb</groupId>
@@ -74,6 +74,11 @@
             <groupId>cms.sre</groupId>
             <artifactId>mongo-connection-helper</artifactId>
             <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
         </dependency>
 
         <!-- Testing Dependencies -->

@@ -78,7 +78,7 @@ public class TestEmailController {
     public void objectToJson() throws Exception {
         //ALWAYS Calls Email Service
         //Assume we have a JSON request to the Controller:
-        String jsonRequest = "{\"dn\":\"CN=Doe John Smith jsdoe12\",\"subject\":\"sub\",\"body\":\"Body\"}";
+        String jsonRequest = "{\"dn\":\"CN=Doe John Smith jsdoe12\",\"subject\":\"Bad Email Request\",\"body\":\"Body\"}";
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost("http://localhost:" + this.port + "/sendEmailWithDN");
@@ -138,12 +138,13 @@ public class TestEmailController {
         Assert.assertEquals(request.getBody(), response.getBody());
         Assert.assertEquals(request.getSubject(), response.getSubject());
         Assert.assertEquals(request.getDn(), response.getDn());
+
     }
 
     @Test
     public void emailServiceCallsIncorrectly() {
         try {
-            String jsonRequest = "{\"dn\":\"Doe John Smith jsdoe12\",\"subject\":\"sub\",\"body\":\"Body\"}";
+            String jsonRequest = "{\"dn\":\"Doe John Smith jsdoe12\",\"subject\":\"Bad Email Request\",\"body\":\"Body\"}";
             SendEmailRequest parsedEmailRequest = jsonEmailRequest.parseObject(jsonRequest);
             Assert.assertNotNull(parsedEmailRequest);
 
@@ -161,6 +162,4 @@ public class TestEmailController {
 
 
     }
-
-
 }

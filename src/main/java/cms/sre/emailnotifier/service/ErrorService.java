@@ -1,30 +1,31 @@
 package cms.sre.emailnotifier.service;
 
 import cms.sre.dna_common_data_model.emailnotifier.Email;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.ErrorMessage;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ErrorHandler;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.net.ConnectException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,7 +46,10 @@ public class ErrorService implements ErrorHandler {
     @Autowired
     private MessageChannel smtpChannel;
 
-
+    /**
+     * Place a message that fails to send into the Persistent API Store
+     * @param message
+     */
     public void handleError(MimeMailMessage message) {
 
         try {
@@ -101,28 +105,36 @@ public class ErrorService implements ErrorHandler {
                 .map(a -> String.valueOf(a.toString()))
                 .collect(Collectors.joining(","));
 
+        JSONObject request = new JSONObject();
 
-        Email email = new Email();
-        email.setEmailAddress(addresses);
-        email.setBody(content);
-        email.setSubject(subject);
-        email.setCreatedDate(createdDate);
+        request.put("emailAddress", addresses);
+        request.put("subject", subject);
+        request.put("body", content);
+        request.put("createdDate", createdDate);
+        request.put("uuid", UUID.randomUUID());
 
         RestTemplate restTemplate = new RestTemplate();
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<String> entity = new HttpEntity<String>(request.toString(4), headers);
+
         try {
 
-            Email result = restTemplate.postForObject("http://" + persistenceApiHost + ":"
-                            + this.persistenceApiPort + "/email", email, Email.class);
+            String url = "http://" + persistenceApiHost + ":"
+                    + this.persistenceApiPort + "/email";
 
-            if (result != null) {
+            ResponseEntity<String> buildResponse = restTemplate.exchange(url,
+                    HttpMethod.POST, entity, String.class);
 
-                logger.info("Successfully processed request");
+            if (buildResponse.getStatusCode() == HttpStatus.OK) {
+
+                logger.info("Successfully persisted email to data store");
 
                 success = true;
             } else {
 
-                logger.error("Unable to process request");
+                logger.error("Failed to send email to data store");
 
                 success = false;
             }
@@ -149,6 +161,7 @@ public class ErrorService implements ErrorHandler {
                 + persistenceApiPort + "/email";
 
         try {
+
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<List<Email>> response = restTemplate.exchange(
                     url,
@@ -163,27 +176,27 @@ public class ErrorService implements ErrorHandler {
 
                 for (Email email : emails) {
 
-                    emailService.sendEmail(email);
+                    if (emailService.isValid(email)) {
 
+                        // Delete the email from the persistent api repository
+                        restTemplate.delete(url + "/" + email.getUuid());
+                        // Put the email back on the queue to send
+                        emailService.sendEmail(email);
+                    }
                 }
             }
+
+        } catch (IllegalArgumentException e)  {
+
+            logger.error("Illegal Arg: Error processing sendEmail request: " + e.getMessage());
+
+        } catch (RestClientException e) {
+
+            logger.error("Rest Client Error processing sendEmail request: " + e.getMessage());
+
         } catch (Exception e) {
 
-            logger.error("Unable to connect to persistence-api host: " + e.getMessage());
-
+            logger.error("Unknown Error processing sendEmail request: " + e.getCause());
         }
-    }
-
-    public void deleteMessageFromDataStore(Email email) {
-
-        final String url = "http://" + persistenceApiHost + ":"
-                + this.persistenceApiPort + "/email";
-
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Email> response = restTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                null, Email.class);
-
     }
 }

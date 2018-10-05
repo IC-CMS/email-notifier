@@ -34,7 +34,6 @@ public class EmailNotifierController {
 
         }
 
-
     }
 
     @RequestMapping(value = "/sendEmailWithDN", method = RequestMethod.POST)

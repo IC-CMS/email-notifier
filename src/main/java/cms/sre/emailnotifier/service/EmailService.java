@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.util.UUID;
 
 @Service
 public class EmailService {
@@ -31,12 +32,11 @@ public class EmailService {
     @Autowired
     private MessageChannel smtpChannel;
 
-    @Value("emailnotifier.fromAddress")
+    @Value("${emailnotifier.fromAddress}")
     private String fromAddress;
 
-    @Value("emailnotifier.addressHost")
+    @Value("${emailnotifier.addressHost}")
     private String addressHost;
-
 
     /**
      * Validatate that the email parsed correctly
@@ -44,19 +44,47 @@ public class EmailService {
      * @param emailRequest
      * @return true or false
      */
-    private static boolean isValid(SendEmailRequest emailRequest) {
+    public boolean isValid(SendEmailRequest emailRequest) {
 
         logger.debug("Validating email: " + emailRequest.getSubject());
 
         boolean ret;
-        if (!emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals(null) || emailRequest.getDn().equals("")) {
+        if (emailRequest.getDn() == null || !emailRequest.getDn().contains("CN=") || emailRequest.getDn().equals("")) {
             ret = false;
 
-        } else if (emailRequest.getBody().equals(null) || emailRequest.getBody().equals("")) {
+        } else if (emailRequest.getBody() == null || emailRequest.getBody().equals("")) {
             ret = false;
 
 
-        } else if (emailRequest.getSubject().equals(null) || emailRequest.getSubject().equals("")) {
+        } else if (emailRequest.getSubject() == null || emailRequest.getSubject().equals("")) {
+            ret = false;
+
+        } else {
+            ret = true;
+
+        }
+        return ret;
+    }
+
+    /**
+     * Validate that the email parsed correctly
+     *
+     * @param email
+     * @return true or false
+     */
+    public boolean isValid(Email email) {
+
+        logger.debug("Validating email: " + email.getSubject());
+
+        boolean ret;
+        if (email.getEmailAddress() == null || !email.getEmailAddress().contains("@") || email.getEmailAddress().equals("")) {
+            ret = false;
+
+        } else if (email.getBody() == null || email.getBody().equals("")) {
+            ret = false;
+
+
+        } else if (email.getSubject() == null || email.getSubject().equals("")) {
             ret = false;
 
         } else {
@@ -149,12 +177,13 @@ public class EmailService {
             email = "";
         }
 
+        Email newEmail = new Email();
+        newEmail.setUuid(UUID.randomUUID().toString());
+        newEmail.setSubject(emailRequest.getSubject());
+        newEmail.setBody(emailRequest.getBody());
+        newEmail.setEmailAddress(email).setUuid(UUID.randomUUID().toString());
 
-        return new Email()
-                .setSubject(emailRequest.getSubject())
-                .setBody(emailRequest.getBody())
-                .setEmailAddress(email);
-
+        return newEmail;
     }
 
     @Configuration
