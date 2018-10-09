@@ -1,7 +1,7 @@
 package cms.sre.emailnotifier.controller;
 
+import cms.sre.dna_common_data_model.emailnotifier.Email;
 import cms.sre.dna_common_data_model.emailnotifier.SendEmailRequest;
-import cms.sre.emailnotifier.dao.SMTPDao;
 import cms.sre.emailnotifier.service.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +17,27 @@ public class EmailNotifierController {
     private EmailService emailService;
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+    public Email sendEmail(@RequestBody Email email){
+
+        logger.info("Received email request from " + email.getEmailAddress());
+        logger.info("Received email request from " + email.getSubject());
+
+        boolean sent = emailService.sendEmail(email);
+
+        if(sent){
+            //do something
+            return email;
+        }
+        else{
+            //do something better than this
+            return email.setSubject("Bad Email Request");
+
+        }
+
+    }
+
+    @RequestMapping(value = "/sendEmailWithDN", method = RequestMethod.POST)
     public SendEmailRequest sendEmail(@RequestBody SendEmailRequest sendEmailRequest){
-
-        logger.info("Received email request from " + sendEmailRequest.getDn());
-        logger.info("Received email request from " + sendEmailRequest.getSubject());
-
         boolean sent = emailService.sendEmail(sendEmailRequest);
         if(sent){
             //do something
